@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="tableDonations" stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.Donation.BilansDonationsController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <VBox spacing="15.0">
+               <children>
+                  <JFXDatePicker fx:id="dateDebut" defaultColor="RED" maxWidth="1.7976931348623157E308" promptText="Date de début" />
+                  <JFXDatePicker fx:id="dateFin" defaultColor="#4000ff" promptText="Date de fin" />
+               </children>
+            </VBox>
+        </items>
+      </ToolBar>
+   </top>
+   <bottom>
+      <SplitPane dividerPositions="0.5" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane>
+               <center>
+                  <Label fx:id="resultCount" text="Nombre de donations: 0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </center>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </BorderPane>
+            <BorderPane>
+               <center>
+                  <Label fx:id="resultAmount" text="Total des donations: 0,00">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </center>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </BorderPane>
+         </items>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </SplitPane>
+   </bottom>
+   <center>
+      <fx:include maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="../ReusedFXMLS/TableDonations.fxml" />
+   </center>
+</BorderPane>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.EvenementDecharge.NouveauEvenementDechargeController">
+   <center>
+      <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane>
+               <left>
+                  <ImageView BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../Icons/designation.png" />
+                     </image>
+                     <BorderPane.margin>
+                        <Insets right="5.0" top="5.0" />
+                     </BorderPane.margin>
+                  </ImageView>
+               </left>
+               <center>
+                  <JFXTextField fx:id="designation" labelFloat="true" maxWidth="1.7976931348623157E308" promptText="Designation de l'evenement" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <TitledPane collapsible="false" maxHeight="250.0" prefHeight="250.0" text="Description de l'evenement">
+               <content>
+                  <BorderPane>
+                     <center>
+                        <JFXTextArea fx:id="description" labelFloat="true" promptText="Description de l'evenement">
+                           <BorderPane.margin>
+                              <Insets top="10.0" />
+                           </BorderPane.margin>
+                        </JFXTextArea>
+                     </center>
+                  </BorderPane>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/description.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TitledPane>
+            <BorderPane>
+               <center>
+                  <JFXDatePicker fx:id="date" maxWidth="1.7976931348623157E308" promptText="Date de l'evennement" />
+               </center>
+               <left>
+                  <ImageView BorderPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../../Icons/date.png" />
+                     </image>
+                     <BorderPane.margin>
+                        <Insets right="5.0" />
+                     </BorderPane.margin>
+                  </ImageView>
+               </left>
+            </BorderPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton maxWidth="1.7976931348623157E308" onAction="#confirm" prefHeight="50.0" styleClass="lightGreenButton" text="Confirmer" HBox.hgrow="ALWAYS" />
+            <JFXButton maxWidth="1.7976931348623157E308" onAction="#cancel" prefHeight="50.0" styleClass="lightRedButton" text="Annuler" HBox.hgrow="ALWAYS" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>

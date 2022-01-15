@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.Main.MainWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Sauvegardes">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#createSauvegarde" text="Créer une nouvelle sauvegarde" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadSauvegarde" text="Charger une sauvegarde" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Configuration">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#updateSettings" text="Paramètres" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Traçabilitée">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#journalAudit" text="Journal audit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Activation">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#activation" text="Activation" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Administration">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#authentificteSuperUser" text="Se connecter en tant qu'administrateur" />
+                  <MenuItem mnemonicParsing="false" onAction="#bilanDonations" text="Bilan des donations" />
+                  <MenuItem mnemonicParsing="false" onAction="#authorizedOrphens" text="Liste orphelins agés et autorisés" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Quitter">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#deconnexion" text="Déconnexion" />
+                  <MenuItem mnemonicParsing="false" onAction="#shutdown" text="Fermer l'application" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <JFXTabPane BorderPane.alignment="CENTER">
+         <tabs>
+          <Tab fx:id="donationsPanel" text="Gest.Donations">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/donations.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab fx:id="tutorsPanel" text="Gest.Tuteurs">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/tuteurs.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Tab>
+            <Tab fx:id="orphensPanel" text="Gest.Orphelin">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/orphelins.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Tab>
+            <Tab fx:id="benevolsPanel" text="Gest.Benevoles">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/benevols.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Tab>
+            <Tab fx:id="evenementsDechargePanel" text="Gest.Decharges">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/eventdecharge.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab fx:id="evenementsBonPanel" text="Gest.Bons d'achat">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/eventBon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab fx:id="historiqueActionsPanel" text="Liste des actions">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/Statistiques.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </center>
+</BorderPane>

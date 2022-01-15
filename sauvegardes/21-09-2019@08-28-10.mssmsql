@@ -1,0 +1,819 @@
+-- MySQL dump 10.13  Distrib 5.7.26, for Win64 (x86_64)
+--
+-- Host: localhost    Database: kafilelyatim
+-- ------------------------------------------------------
+-- Server version	5.7.26-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `actions`
+--
+
+DROP TABLE IF EXISTS `actions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actions` (
+  `ID_ACTION` int(11) NOT NULL,
+  `DATE_ACTION` date DEFAULT NULL,
+  `QUANTITE_ACTION` int(11) DEFAULT NULL,
+  `ID_EVENEMENT` int(11) DEFAULT NULL,
+  `ID_TUTEUR` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_ACTION`),
+  KEY `FKq7x9isfmnbq0etm2qsu9jtwta` (`ID_TUTEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actions`
+--
+
+LOCK TABLES `actions` WRITE;
+/*!40000 ALTER TABLE `actions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `actions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `appareillages`
+--
+
+DROP TABLE IF EXISTS `appareillages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `appareillages` (
+  `ID_APPAREILLAGE` int(11) NOT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `TYPE_APPAREILLAGE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_APPAREILLAGE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appareillages`
+--
+
+LOCK TABLES `appareillages` WRITE;
+/*!40000 ALTER TABLE `appareillages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `appareillages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `apparencesphysiques`
+--
+
+DROP TABLE IF EXISTS `apparencesphysiques`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `apparencesphysiques` (
+  `ID_APPARENCE_PHYSIQUE` int(11) NOT NULL,
+  `DDMAJ` date DEFAULT NULL,
+  `OBSERVATION_PHYSIQUE` varchar(255) DEFAULT NULL,
+  `POINTURE` varchar(255) DEFAULT NULL,
+  `ID_ORPHELIN` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_APPARENCE_PHYSIQUE`),
+  KEY `FKl6ayki0ec2lagpjxcws3qo3ki` (`ID_ORPHELIN`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apparencesphysiques`
+--
+
+LOCK TABLES `apparencesphysiques` WRITE;
+/*!40000 ALTER TABLE `apparencesphysiques` DISABLE KEYS */;
+INSERT INTO `apparencesphysiques` VALUES (1,NULL,'','',1),(2,NULL,'','',2),(3,NULL,'','',3);
+/*!40000 ALTER TABLE `apparencesphysiques` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `benevoles`
+--
+
+DROP TABLE IF EXISTS `benevoles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `benevoles` (
+  `ID_BENEVOLE` int(11) NOT NULL,
+  `EMAIL` varchar(255) DEFAULT NULL,
+  `FACEBOOK` varchar(255) DEFAULT NULL,
+  `GENRE` int(11) DEFAULT NULL,
+  `NOM_BENEVOLE` varchar(255) DEFAULT NULL,
+  `PRENOM_BENEVOLE` varchar(255) DEFAULT NULL,
+  `TELEPHONE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_BENEVOLE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `benevoles`
+--
+
+LOCK TABLES `benevoles` WRITE;
+/*!40000 ALTER TABLE `benevoles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `benevoles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `benevoles_vehicules`
+--
+
+DROP TABLE IF EXISTS `benevoles_vehicules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `benevoles_vehicules` (
+  `ID_BENEVOLE` int(11) NOT NULL,
+  `ID_VEHICULE` int(11) NOT NULL,
+  KEY `FKov503aj54ainp9is2xotekbn5` (`ID_VEHICULE`),
+  KEY `FKi8kuckwk3f5mrlwsp0rrk39j7` (`ID_BENEVOLE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `benevoles_vehicules`
+--
+
+LOCK TABLES `benevoles_vehicules` WRITE;
+/*!40000 ALTER TABLE `benevoles_vehicules` DISABLE KEYS */;
+/*!40000 ALTER TABLE `benevoles_vehicules` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comptes`
+--
+
+DROP TABLE IF EXISTS `comptes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comptes` (
+  `id` int(11) NOT NULL,
+  `admin` bit(1) DEFAULT NULL,
+  `cheminMysql` varchar(255) DEFAULT NULL,
+  `cheminSauvegarde` varchar(255) DEFAULT NULL,
+  `dateDerniereConnexion` date DEFAULT NULL,
+  `heureDerniereConnexion` time DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comptes`
+--
+
+LOCK TABLES `comptes` WRITE;
+/*!40000 ALTER TABLE `comptes` DISABLE KEYS */;
+INSERT INTO `comptes` VALUES (1,_binary '','C:/Program Files/MySQL/MySQL Server 5.7/','sauvegardes/','2019-09-21','19:27:51','admin','admin');
+/*!40000 ALTER TABLE `comptes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `donateurs`
+--
+
+DROP TABLE IF EXISTS `donateurs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `donateurs` (
+  `ID_DONATEUR` int(11) NOT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `NOM_DONATION` varchar(255) DEFAULT NULL,
+  `PRENOM_DONATEUR` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_DONATEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `donateurs`
+--
+
+LOCK TABLES `donateurs` WRITE;
+/*!40000 ALTER TABLE `donateurs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `donateurs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `donations`
+--
+
+DROP TABLE IF EXISTS `donations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `donations` (
+  `ID_DONATION` int(11) NOT NULL,
+  `DATE_DONATION` date DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `FORME_DONATION` int(11) DEFAULT NULL,
+  `OBSERVATION_DONATION` varchar(255) DEFAULT NULL,
+  `TYPE_DONATION` int(11) DEFAULT NULL,
+  `VALEUR_DONATION` varchar(255) DEFAULT NULL,
+  `ID_DONATEUR` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_DONATION`),
+  KEY `FKhayye9mjdlhd02x9yup8oijpc` (`ID_DONATEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `donations`
+--
+
+LOCK TABLES `donations` WRITE;
+/*!40000 ALTER TABLE `donations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `donations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dossiersfamilliaux`
+--
+
+DROP TABLE IF EXISTS `dossiersfamilliaux`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dossiersfamilliaux` (
+  `ID_DOSSIER_FAMILIAL` int(11) NOT NULL,
+  `NOM_MERE` varchar(255) DEFAULT NULL,
+  `NOM_PERE` varchar(255) DEFAULT NULL,
+  `PRENOM_MERE` varchar(255) DEFAULT NULL,
+  `PRENOM_PERE` varchar(255) DEFAULT NULL,
+  `SITUATION_FAMILLIALE` varchar(255) DEFAULT NULL,
+  `TYPE_ORPHELINAT` int(11) DEFAULT NULL,
+  `ID_ORPHELIN` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_DOSSIER_FAMILIAL`),
+  KEY `FKkmmcjx4hhfivuos0fxqdtgwt` (`ID_ORPHELIN`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dossiersfamilliaux`
+--
+
+LOCK TABLES `dossiersfamilliaux` WRITE;
+/*!40000 ALTER TABLE `dossiersfamilliaux` DISABLE KEYS */;
+INSERT INTO `dossiersfamilliaux` VALUES (1,'','','','',NULL,NULL,1),(2,'','','','',NULL,NULL,2),(3,'','','','',NULL,NULL,3);
+/*!40000 ALTER TABLE `dossiersfamilliaux` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dossiersmedicauxorphelins`
+--
+
+DROP TABLE IF EXISTS `dossiersmedicauxorphelins`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dossiersmedicauxorphelins` (
+  `ID_DOSSIER_MEDICAL` int(11) NOT NULL,
+  `MEDICAMENTS` varchar(255) DEFAULT NULL,
+  `PATHOLOGIE` varchar(255) DEFAULT NULL,
+  `ID_ORPHELIN` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_DOSSIER_MEDICAL`),
+  KEY `FK74334j4nbu65si9nw603tl9tu` (`ID_ORPHELIN`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dossiersmedicauxorphelins`
+--
+
+LOCK TABLES `dossiersmedicauxorphelins` WRITE;
+/*!40000 ALTER TABLE `dossiersmedicauxorphelins` DISABLE KEYS */;
+INSERT INTO `dossiersmedicauxorphelins` VALUES (1,'','',1),(2,'','',2),(3,'','',3);
+/*!40000 ALTER TABLE `dossiersmedicauxorphelins` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dossiersmedicauxtuteurs`
+--
+
+DROP TABLE IF EXISTS `dossiersmedicauxtuteurs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dossiersmedicauxtuteurs` (
+  `ID_DOSSIER_MEDICAL` int(11) NOT NULL,
+  `MEDICAMENTS` varchar(255) DEFAULT NULL,
+  `PATHOLOGIE` varchar(255) DEFAULT NULL,
+  `ID_TUTEUR` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_DOSSIER_MEDICAL`),
+  KEY `FKdi0bo836pli39ua576alabxi8` (`ID_TUTEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dossiersmedicauxtuteurs`
+--
+
+LOCK TABLES `dossiersmedicauxtuteurs` WRITE;
+/*!40000 ALTER TABLE `dossiersmedicauxtuteurs` DISABLE KEYS */;
+INSERT INTO `dossiersmedicauxtuteurs` VALUES (1,'','',1),(2,'','',2);
+/*!40000 ALTER TABLE `dossiersmedicauxtuteurs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dossiersscolaires`
+--
+
+DROP TABLE IF EXISTS `dossiersscolaires`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dossiersscolaires` (
+  `ID_DOSSIER_SCOLAIRE` int(11) NOT NULL,
+  `ANNEE_SCOLAIRE` int(11) DEFAULT NULL,
+  `DDMAJ` date DEFAULT NULL,
+  `NIVEAU_SCOLAIRE` int(11) DEFAULT NULL,
+  `OBSERVATION` varchar(255) DEFAULT NULL,
+  `SCOLARISE` bit(1) DEFAULT NULL,
+  `ID_ORPHELIN` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_DOSSIER_SCOLAIRE`),
+  KEY `FK7escv45wa1kh35d5b6ldexcpq` (`ID_ORPHELIN`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dossiersscolaires`
+--
+
+LOCK TABLES `dossiersscolaires` WRITE;
+/*!40000 ALTER TABLE `dossiersscolaires` DISABLE KEYS */;
+INSERT INTO `dossiersscolaires` VALUES (1,-1,NULL,NULL,NULL,_binary '\0',1),(2,-1,NULL,NULL,NULL,_binary '\0',2),(3,-1,NULL,NULL,NULL,_binary '\0',3);
+/*!40000 ALTER TABLE `dossiersscolaires` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `droits`
+--
+
+DROP TABLE IF EXISTS `droits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `droits` (
+  `id` int(11) NOT NULL,
+  `representation` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `droits`
+--
+
+LOCK TABLES `droits` WRITE;
+/*!40000 ALTER TABLE `droits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `droits` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enquetes`
+--
+
+DROP TABLE IF EXISTS `enquetes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `enquetes` (
+  `ID_ENQUETE` int(11) NOT NULL,
+  `DATE_ENQUETE` date DEFAULT NULL,
+  `NOM_ENQUETEUR` varchar(255) DEFAULT NULL,
+  `PRENOM_ENQUETEUR` varchar(255) DEFAULT NULL,
+  `ID_SITUATION_SOCIALE` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_ENQUETE`),
+  KEY `FKo7o83k2nwiyf5y2njw71110mg` (`ID_SITUATION_SOCIALE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enquetes`
+--
+
+LOCK TABLES `enquetes` WRITE;
+/*!40000 ALTER TABLE `enquetes` DISABLE KEYS */;
+INSERT INTO `enquetes` VALUES (1,NULL,'','',1),(2,NULL,'','',2);
+/*!40000 ALTER TABLE `enquetes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `evenements_bons`
+--
+
+DROP TABLE IF EXISTS `evenements_bons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `evenements_bons` (
+  `ID_EVENEMENT` int(11) NOT NULL,
+  `DATE_EVENEMENT` date DEFAULT NULL,
+  `DESCRIPTION_EVENEMENT` varchar(255) DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `DESIGNATION_EVENEMENT` varchar(255) DEFAULT NULL,
+  `COUT_BON` double DEFAULT NULL,
+  `ETABLISSEMENT_VALIDATION` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_EVENEMENT`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `evenements_bons`
+--
+
+LOCK TABLES `evenements_bons` WRITE;
+/*!40000 ALTER TABLE `evenements_bons` DISABLE KEYS */;
+/*!40000 ALTER TABLE `evenements_bons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `evenements_lots`
+--
+
+DROP TABLE IF EXISTS `evenements_lots`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `evenements_lots` (
+  `ID_EVENEMENT` int(11) NOT NULL,
+  `DATE_EVENEMENT` date DEFAULT NULL,
+  `DESCRIPTION_EVENEMENT` varchar(255) DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `DESIGNATION_EVENEMENT` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_EVENEMENT`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `evenements_lots`
+--
+
+LOCK TABLES `evenements_lots` WRITE;
+/*!40000 ALTER TABLE `evenements_lots` DISABLE KEYS */;
+/*!40000 ALTER TABLE `evenements_lots` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `habitats`
+--
+
+DROP TABLE IF EXISTS `habitats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `habitats` (
+  `ID_HABITAT` int(11) NOT NULL,
+  `CLASSEMENT_HABITAT` varchar(255) DEFAULT NULL,
+  `ETAT_HABITAT` int(11) DEFAULT NULL,
+  `TYPE_BIEN` int(11) DEFAULT NULL,
+  `ID_TUTEUR` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_HABITAT`),
+  KEY `FK3gr98qn9sshrd2qbkc9vcflmp` (`ID_TUTEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `habitats`
+--
+
+LOCK TABLES `habitats` WRITE;
+/*!40000 ALTER TABLE `habitats` DISABLE KEYS */;
+INSERT INTO `habitats` VALUES (1,'',NULL,NULL,1),(2,'',NULL,NULL,2);
+/*!40000 ALTER TABLE `habitats` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hibernate_sequence`
+--
+
+DROP TABLE IF EXISTS `hibernate_sequence`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+LOCK TABLES `hibernate_sequence` WRITE;
+/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
+INSERT INTO `hibernate_sequence` VALUES (2);
+/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `journeesdisponibles`
+--
+
+DROP TABLE IF EXISTS `journeesdisponibles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `journeesdisponibles` (
+  `ID_JOURNEE_DISPONIBLE` int(11) NOT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `HEURE_DEBUT` time DEFAULT NULL,
+  `HEURE_FIN` time DEFAULT NULL,
+  `JOUR_SEMAINE` int(11) DEFAULT NULL,
+  `ID_BENEVOLE` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_JOURNEE_DISPONIBLE`),
+  KEY `FKni9psvpw5dasqbnxocj46cxun` (`ID_BENEVOLE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `journeesdisponibles`
+--
+
+LOCK TABLES `journeesdisponibles` WRITE;
+/*!40000 ALTER TABLE `journeesdisponibles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `journeesdisponibles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `operations`
+--
+
+DROP TABLE IF EXISTS `operations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `operations` (
+  `id` int(11) NOT NULL,
+  `dateOperation` date DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `heureOperation` time DEFAULT NULL,
+  `ID_OPERATEUR` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK2c2fvi6sjbg06wanbtql3bsmb` (`ID_OPERATEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `operations`
+--
+
+LOCK TABLES `operations` WRITE;
+/*!40000 ALTER TABLE `operations` DISABLE KEYS */;
+INSERT INTO `operations` VALUES (1,'2019-07-02','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','18:07:40',NULL),(2,'2019-07-02','INSERTION DE LA REGION Tlemcen','18:08:21',1),(3,'2019-07-02','INSERTION DE LA REGION SBA','18:08:25',1),(4,'2019-07-02','INSERTION DU TUTEUR aaa aaa','18:09:12',1),(5,'2019-07-02','INSERTION DU TUTEUR bbb bbb','18:09:19',1),(6,'2019-07-02','INSERTION DE L\'ORPHELIN aa aa','18:09:39',1),(7,'2019-07-02','INSERTION DE L\'ORPHELIN aa2 aa2','18:09:57',1),(8,'2019-07-02','INSERTION DE L\'ORPHELIN bb bb','18:10:05',1),(9,'2019-07-02','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','18:14:54',NULL),(10,'2019-07-02','MISE Ã JOUR DE 1 Configuration','18:15:03',1),(11,'2019-07-02','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','18:20:26',NULL),(12,'2019-07-02','MISE A JOUR DU TUTEUR aaa aaa','18:20:39',1),(13,'2019-07-02','MISE A JOUR DU TUTEUR aaa aaa','18:20:43',1),(14,'2019-07-02','MISE A JOUR DU TUTEUR aaa aaa','18:20:46',1),(15,'2019-07-02','MISE A JOUR DU TUTEUR aaa aaa','18:21:13',1),(16,'2019-07-02','MISE A JOUR DU TUTEUR aaa aaa','18:21:14',1),(17,'2019-07-02','MISE A JOUR DU TUTEUR aaa aaa','18:21:24',1),(18,'2019-07-02','MISE A JOUR DU TUTEUR aaa aaa','18:21:29',1),(19,'2019-07-02','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','18:25:41',NULL),(20,'2019-07-02','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','18:27:45',NULL),(21,'2019-07-06','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','08:54:04',NULL),(22,'2019-07-06','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','09:00:04',NULL),(23,'2019-07-06','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','09:06:13',NULL),(24,'2019-07-06','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','09:11:35',NULL),(25,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','11:42:53',NULL),(26,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','11:43:10',1),(27,'2019-09-21','MISE A JOUR DU TUTEUR bbb bbb','11:43:45',1),(28,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','11:52:36',NULL),(29,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','11:52:45',1),(30,'2019-09-21','MISE A JOUR DU TUTEUR bbb bbb','11:52:56',1),(31,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','11:53:52',NULL),(32,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','11:54:02',1),(33,'2019-09-21','MISE A JOUR DU TUTEUR bbb bbb','11:54:05',1),(34,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','11:54:18',1),(35,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','11:56:28',NULL),(36,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','11:56:36',1),(37,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:20:27',NULL),(38,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:20:37',1),(39,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:24:48',NULL),(40,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:24:55',1),(41,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:24:57',1),(42,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:27:50',NULL),(43,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:27:58',1),(44,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:28:59',NULL),(45,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:29:06',1),(46,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:29:08',1),(47,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:30:34',NULL),(48,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:30:41',1),(49,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:31:35',NULL),(50,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:32:17',NULL),(51,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:34:07',NULL),(52,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:34:15',1),(53,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:38:55',NULL),(54,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:39:04',1),(55,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:41:59',NULL),(56,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','12:42:09',1),(57,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:53:56',NULL),(58,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:55:37',NULL),(59,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','12:59:23',NULL),(60,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:01:30',NULL),(61,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:02:09',NULL),(62,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:02:19',1),(63,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:02:21',1),(64,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:03:58',NULL),(65,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:04:22',NULL),(66,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:04:45',NULL),(67,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:08:31',NULL),(68,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:18:45',NULL),(69,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:19:12',NULL),(70,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:19:38',NULL),(71,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:19:49',1),(72,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:19:52',1),(73,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:20:25',NULL),(74,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:25:00',NULL),(75,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:25:07',1),(76,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:25:08',1),(77,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:27:59',NULL),(78,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:28:11',1),(79,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:29:14',NULL),(80,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:29:21',1),(81,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:30:12',NULL),(82,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:30:20',1),(83,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:30:46',NULL),(84,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:30:52',1),(85,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:31:31',NULL),(86,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:31:37',1),(87,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:31:52',NULL),(88,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:31:58',1),(89,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:32:21',NULL),(90,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:32:28',1),(91,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:32:30',1),(92,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:33:27',NULL),(93,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:40:19',NULL),(94,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:40:28',1),(95,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:40:30',1),(96,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','13:41:01',NULL),(97,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:41:07',1),(98,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','13:41:09',1),(99,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','19:15:25',NULL),(100,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','19:27:27',NULL),(101,'2019-09-21','TENTATIVE DE CONNEXION AVEC LES INFORMATIONS SUIVANTES: (admin ; admin)','19:27:51',NULL),(102,'2019-09-21','MISE A JOUR DU TUTEUR bbb bbb','19:28:01',1),(103,'2019-09-21','MISE A JOUR DU TUTEUR aaa aaa','19:28:08',1);
+/*!40000 ALTER TABLE `operations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orphelins`
+--
+
+DROP TABLE IF EXISTS `orphelins`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orphelins` (
+  `ID_ORPHELIN` int(11) NOT NULL,
+  `AUTORISE` bit(1) DEFAULT NULL,
+  `DDN_ORPHELIN` date DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `GENRE_ORPHELIN` int(11) DEFAULT NULL,
+  `NOM_ORPHELIN` varchar(255) DEFAULT NULL,
+  `OBSERVATION_ORPHELIN` varchar(255) DEFAULT NULL,
+  `PRENOM_ORPHELIN` varchar(255) DEFAULT NULL,
+  `RELATION_TUTEUR` varchar(255) DEFAULT NULL,
+  `ID_APPARENCE_PHYSIQUE` int(11) DEFAULT NULL,
+  `ID_DOSSIER_FAMILIAL` int(11) DEFAULT NULL,
+  `ID_DOSSIER_MEDICAL` int(11) DEFAULT NULL,
+  `ID_DOSSIER_SCOLAIRE` int(11) DEFAULT NULL,
+  `ID_TUTEUR` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_ORPHELIN`),
+  KEY `FKt2jtug7h3lupuci9vw0996v02` (`ID_APPARENCE_PHYSIQUE`),
+  KEY `FK7q94mtyw2x8f19j47crbuuuc` (`ID_DOSSIER_FAMILIAL`),
+  KEY `FKd0rw698jbauxpqcbj3conkjnv` (`ID_DOSSIER_MEDICAL`),
+  KEY `FK3fm2w6mj2m7huunnamssemh6j` (`ID_DOSSIER_SCOLAIRE`),
+  KEY `FKp73ouovmgld3ggv47ow78c1sh` (`ID_TUTEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orphelins`
+--
+
+LOCK TABLES `orphelins` WRITE;
+/*!40000 ALTER TABLE `orphelins` DISABLE KEYS */;
+INSERT INTO `orphelins` VALUES (1,_binary '\0','2019-07-01','','aa aa',0,'aa','','aa','',1,1,1,1,1),(2,_binary '\0','2019-07-01','','aa2 aa2',0,'aa2','','aa2','',2,2,2,2,1),(3,_binary '\0','2019-07-01','','bb bb',0,'bb','','bb','',3,3,3,3,2);
+/*!40000 ALTER TABLE `orphelins` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orphelins_appareillages`
+--
+
+DROP TABLE IF EXISTS `orphelins_appareillages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orphelins_appareillages` (
+  `ID_DOSSIER_MEDICAL` int(11) NOT NULL,
+  `ID_APPAREILLAGE` int(11) NOT NULL,
+  KEY `FKilxmmqo1qujjhna9dcbja6r2t` (`ID_APPAREILLAGE`),
+  KEY `FK1dctn8ti7xj2shtjxr2twxi8x` (`ID_DOSSIER_MEDICAL`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orphelins_appareillages`
+--
+
+LOCK TABLES `orphelins_appareillages` WRITE;
+/*!40000 ALTER TABLE `orphelins_appareillages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orphelins_appareillages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `postes`
+--
+
+DROP TABLE IF EXISTS `postes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `postes` (
+  `ID` varchar(255) NOT NULL,
+  `NOM_POSTE` varchar(255) DEFAULT NULL,
+  `NOMBRE_ACTIVATIONS` int(11) DEFAULT NULL,
+  `PERIODE_UTILISATION` varchar(255) DEFAULT NULL,
+  `TEMPS_UTILISATION` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `postes`
+--
+
+LOCK TABLES `postes` WRITE;
+/*!40000 ALTER TABLE `postes` DISABLE KEYS */;
+INSERT INTO `postes` VALUES ('920E-C119-5441-9D3B-C8E3-B35F-A23B-9D21','Poste 1',0,'kO1by+LmH6H3gCLEEy4fwg==','6dFd/r6CcQdSTb+rUiAB1A==');
+/*!40000 ALTER TABLE `postes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `regions`
+--
+
+DROP TABLE IF EXISTS `regions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `regions` (
+  `ID_REGION` int(11) NOT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `NOM_REGION` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_REGION`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `regions`
+--
+
+LOCK TABLES `regions` WRITE;
+/*!40000 ALTER TABLE `regions` DISABLE KEYS */;
+INSERT INTO `regions` VALUES (1,'Tlemcen','Tlemcen'),(2,'SBA','SBA');
+/*!40000 ALTER TABLE `regions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `situationssociales`
+--
+
+DROP TABLE IF EXISTS `situationssociales`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `situationssociales` (
+  `ID_SITUATION_SOCIALE` int(11) NOT NULL,
+  `COMPETANCES` varchar(255) DEFAULT NULL,
+  `CONVERTURE_SOCIALE` double DEFAULT NULL,
+  `FONCTION` varchar(255) DEFAULT NULL,
+  `NIVEAU_ETUDE` varchar(255) DEFAULT NULL,
+  `NIVEAU_VIE` int(11) DEFAULT NULL,
+  `RETRAIRE` double DEFAULT NULL,
+  `SALAIRE` double DEFAULT NULL,
+  `ID_ENQUETE` int(11) DEFAULT NULL,
+  `ID_TUTEUR` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_SITUATION_SOCIALE`),
+  KEY `FKmg0cmf0q6cfqfwwms3nx71nmg` (`ID_ENQUETE`),
+  KEY `FKs6uet2d1dytae04mug6pjeplo` (`ID_TUTEUR`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `situationssociales`
+--
+
+LOCK TABLES `situationssociales` WRITE;
+/*!40000 ALTER TABLE `situationssociales` DISABLE KEYS */;
+INSERT INTO `situationssociales` VALUES (1,'',0,'','',1,0,0,1,1),(2,'',0,'','',NULL,0,0,2,2);
+/*!40000 ALTER TABLE `situationssociales` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tuteurs`
+--
+
+DROP TABLE IF EXISTS `tuteurs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tuteurs` (
+  `ID_TUTEUR` int(11) NOT NULL,
+  `ADRESSE_TUTEUR` varchar(255) DEFAULT NULL,
+  `DDN_TUTEUR` date DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `NCARTE_BANQUAIRE` varchar(255) DEFAULT NULL,
+  `NDOSSIER_BUREAUTIQUE` varchar(255) DEFAULT NULL,
+  `AUTRE_NUMERO_TELEPHONE_1` varchar(255) DEFAULT NULL,
+  `AUTRE_NUMERO_TELEPHONE_2` varchar(255) DEFAULT NULL,
+  `NUMERO_TELEPHONE_FIXE_TUTEUR` varchar(255) DEFAULT NULL,
+  `NUMERO_TELEPHONE_MOBILE_TUTEUR` varchar(255) DEFAULT NULL,
+  `NB_ORPHELIN` int(11) DEFAULT NULL,
+  `NCCP_TUTEUR` varchar(255) DEFAULT NULL,
+  `NCNI_TUTEUR` varchar(255) DEFAULT NULL,
+  `NOM_TUTEUR` varchar(255) DEFAULT NULL,
+  `NOM_PERE_ORPHELINS` varchar(255) DEFAULT NULL,
+  `OBSERVATION` varchar(255) DEFAULT NULL,
+  `PRENOM_TUTEUR` varchar(255) DEFAULT NULL,
+  `PRENOM_PERE_ORPHELINS` varchar(255) DEFAULT NULL,
+  `SECONDE_ADRESSE_TUTEUR` varchar(255) DEFAULT NULL,
+  `ID_DOSSIER_MEDICAL` int(11) DEFAULT NULL,
+  `ID_HABITAT` int(11) DEFAULT NULL,
+  `ID_REGION_TUTEUR` int(11) DEFAULT NULL,
+  `ID_SITUATION_SOCIALE` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID_TUTEUR`),
+  KEY `FKp4j7lvh0dgsrvauajgoeuaahg` (`ID_DOSSIER_MEDICAL`),
+  KEY `FKpg4xl8uxj1opph9q0mdubyag1` (`ID_HABITAT`),
+  KEY `FKbmesvyqb8p0x2b39wgw26mcek` (`ID_REGION_TUTEUR`),
+  KEY `FKis4kx2lhdm9dicolf7hgv1227` (`ID_SITUATION_SOCIALE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tuteurs`
+--
+
+LOCK TABLES `tuteurs` WRITE;
+/*!40000 ALTER TABLE `tuteurs` DISABLE KEYS */;
+INSERT INTO `tuteurs` VALUES (1,'','2019-07-01',NULL,'aaa aaa','','','','','','',2,'','','aaa','',NULL,'aaa','',NULL,1,1,2,1),(2,'','2019-07-01',NULL,'bbb bbb','','','','','','',1,'','','bbb','',NULL,'bbb','',NULL,2,2,1,2);
+/*!40000 ALTER TABLE `tuteurs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tuteurs_appareillages`
+--
+
+DROP TABLE IF EXISTS `tuteurs_appareillages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tuteurs_appareillages` (
+  `ID_DOSSIER_MEDICAL` int(11) NOT NULL,
+  `ID_APPAREILLAGE` int(11) NOT NULL,
+  KEY `FKf188qe9wfqreobgkk426e3et3` (`ID_APPAREILLAGE`),
+  KEY `FKolax7366nm7or345aodx4oq5t` (`ID_DOSSIER_MEDICAL`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tuteurs_appareillages`
+--
+
+LOCK TABLES `tuteurs_appareillages` WRITE;
+/*!40000 ALTER TABLE `tuteurs_appareillages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tuteurs_appareillages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vehicules`
+--
+
+DROP TABLE IF EXISTS `vehicules`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vehicules` (
+  `ID_VEHICULE` int(11) NOT NULL,
+  `designation` varchar(255) DEFAULT NULL,
+  `TYPE_VEHICULE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID_VEHICULE`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vehicules`
+--
+
+LOCK TABLES `vehicules` WRITE;
+/*!40000 ALTER TABLE `vehicules` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vehicules` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-09-21 20:28:10

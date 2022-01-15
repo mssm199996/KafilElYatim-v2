@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import msjfxuicomponents.uicomponents.MSCategorizerCrudListTitledPane?>
+<?import msjfxuicomponents.uicomponents.MSSimpleCategorizerListTitledPane?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.EvenementDecharge.EvenementsDechargesPanelController">
+   <top>
+      <ToolBar BorderPane.alignment="CENTER">
+         <items>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/region.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="regionFilter" labelFloat="true" prefWidth="140.0" promptText="Region" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/niveauVie.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="niveauDeVieFilter" labelFloat="true" prefWidth="140.0" promptText="Niveau de vie" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/type.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="etatHabitatFilter" labelFloat="true" prefWidth="140.0" promptText="Etat de l'habitat" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/propriete.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="typeBienFilter" labelFloat="true" prefWidth="140.0" promptText="Type de l'habitat" />
+            <Separator orientation="VERTICAL" />
+            <JFXButton onAction="#confirmAndPrint" styleClass="lightBrownButton" text="Imprimer">
+               <graphic>
+                  <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/print.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#addAll" styleClass="lightGreenButton" text="Ajouter tout">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/addAll.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#deleteAll" styleClass="lightRedButton" text="Supprimer tout">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/minusAll.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.25, 0.7" BorderPane.alignment="CENTER">
+         <items>
+            <MSCategorizerCrudListTitledPane fx:id="listeEvenements" addButtonCaption="Nouvel evenement" collapsible="false" deleteButtonCaption="Supprimer evenement" maxHeight="1.7976931348623157E308" minWidth="0.0" text="Liste des évenements">
+               <leftSideImage>
+                  <Image url="@../../Icons/lot.png" />
+               </leftSideImage>
+            </MSCategorizerCrudListTitledPane>
+            <BorderPane minWidth="0.0">
+               <top>
+                  <BorderPane minWidth="0.0" BorderPane.alignment="CENTER">
+                     <center>
+                        <JFXTextField fx:id="nomPrenomFilter" labelFloat="true" promptText="Rechercher par nom / prenom" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets right="5.0" />
+                           </BorderPane.margin>
+                        </JFXTextField>
+                     </center>
+                     <left>
+                        <JFXButton onAction="#refresh" styleClass="lightBlueButton" text="Rafraichir" BorderPane.alignment="CENTER">
+                           <graphic>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/reset.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                        </JFXButton>
+                     </left>
+                     <BorderPane.margin>
+                        <Insets top="5.0" />
+                     </BorderPane.margin>
+                  </BorderPane>
+               </top>
+               <center>
+                  <fx:include fx:id="tableTuteurs" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="0.0" source="../ReusedFXMLS/TableTuteurs.fxml" />
+               </center>
+            </BorderPane>
+            <MSSimpleCategorizerListTitledPane fx:id="listePersonnesSelectionnees" collapsible="false" maxHeight="1.7976931348623157E308" minWidth="0.0" text="Liste des tuteurs sélectionnés">
+               <leftSideImage>
+                  <Image url="@../../Icons/dossierFamilial.png" />
+               </leftSideImage>
+            </MSSimpleCategorizerListTitledPane>
+         </items>
+      </SplitPane>
+   </center>
+</BorderPane>

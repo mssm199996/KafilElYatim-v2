@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import msjfxuicomponents.uicomponents.MSCategorizerCrudListTitledPane?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.Benevole.BenevolsPanelController">
+   <center>
+      <SplitPane dividerPositions="0.8" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane>
+               <center>
+                  <TableView fx:id="tablePrincipale" editable="true" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="indexColumn" prefWidth="75.0" text="N°">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/numero.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                      <TableColumn fx:id="nomColumn" prefWidth="120.0" text="Nom">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/name.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="prenomColumn" prefWidth="120.0" text="Prenom">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/prenom.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="genreColumn" prefWidth="100.0" text="Genre">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/sexe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="telephoneColumn" prefWidth="140.0" style="-: ;" text="Telephone">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/telport.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="emailColumn" prefWidth="170.0" text="E-mail">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/gmail.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="facebookColumn" prefWidth="170.0" text="Facebook">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/fb.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="adresseColumn" prefWidth="170.0" text="Adresse">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/addr.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="nombreSollicitationColumn" prefWidth="230.0" text="Nombre de sollicitations">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/numero.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                        <TableColumn fx:id="dateDerniereSollicitationColumn" prefWidth="220.0" text="Date dernière sollicitation">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Icons/date.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </TableColumn>
+                    </columns>
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#solliciter" text="Solliciter" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+               </center>
+            </BorderPane>
+            <Accordion fx:id="accordion" disable="true">
+               <panes>
+                  <MSCategorizerCrudListTitledPane fx:id="journeesDisponiblesListView" addButtonCaption="Nouvelle journée" deleteButtonCaption="Supprimer une journée" leftSideImageHeightFit="35.0" leftSideImageWidthFit="35.0" text="Journées disponibles">
+                     <leftSideImage>
+                        <Image url="@../../Icons/journeeDisponible.png" />
+                     </leftSideImage>
+                  </MSCategorizerCrudListTitledPane>
+                  <MSCategorizerCrudListTitledPane fx:id="vehiculesListView" addButtonCaption="Nouveau vehicule" deleteButtonCaption="Supprimer un vehicule" leftSideImageHeightFit="0.0" leftSideImageWidthFit="0.0" text="Liste des vehicules">
+                     <leftSideImage>
+                        <Image url="@../../Icons/vehicules.png" />
+                     </leftSideImage>
+                  </MSCategorizerCrudListTitledPane>
+                  <MSCategorizerCrudListTitledPane fx:id="cellulesListView" addButtonCaption="Nouvelle céllule" deleteButtonCaption="Supprimer une céllule" layoutX="10.0" layoutY="57.0" leftSideImageHeightFit="30.0" leftSideImageWidthFit="30.0" text="Liste des céllules">
+                     <leftSideImage>
+                        <Image url="@../../Icons/type.png" />
+                     </leftSideImage>
+                  </MSCategorizerCrudListTitledPane>
+                  <MSCategorizerCrudListTitledPane fx:id="statutsListView" addButtonCaption="Nouveau statut" deleteButtonCaption="Supprimer un statut" layoutX="10.0" layoutY="110.0" text="Liste des statuts">
+                     <leftSideImage>
+                        <Image url="@../../Icons/artImport.png" />
+                     </leftSideImage>
+                  </MSCategorizerCrudListTitledPane>
+                  <MSCategorizerCrudListTitledPane fx:id="professionsListView" addButtonCaption="Nouvelle profession" deleteButtonCaption="Supprimer une profession" layoutX="10.0" layoutY="152.0" leftSideImageHeightFit="30.0" leftSideImageWidthFit="35.0" text="Liste des professions">
+                     <leftSideImage>
+                        <Image url="@../../Icons/metier.png" />
+                     </leftSideImage>
+                  </MSCategorizerCrudListTitledPane>
+               </panes>
+            </Accordion>
+         </items>
+      </SplitPane>
+   </center>
+   <top>
+      <ToolBar BorderPane.alignment="CENTER">
+         <items>
+            <JFXButton onAction="#addEntity" prefHeight="50.0" styleClass="lightGreenButton">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/bigPlus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#deleteEntity" prefHeight="50.0" styleClass="lightRedButton">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#refresh" prefHeight="50.0" styleClass="lightBlueButton">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/reset.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Separator orientation="VERTICAL" />
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/name.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="nomPrenom" labelFloat="true" onKeyReleased="#search" prefWidth="200.0" promptText="Nom | Prenom" />
+            <Separator layoutX="465.0" layoutY="10.0" orientation="VERTICAL" />
+            <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/journeeDisponible.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="journeeDisponible" labelFloat="true" prefWidth="150.0" promptText="Journee disponible" />
+            <ImageView pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/vehicules.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="vehicule" labelFloat="true" prefWidth="150.0" promptText="Vehicule" />
+            <ImageView layoutX="844.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/type.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="cellule" labelFloat="true" layoutX="890.0" layoutY="20.0" prefWidth="150.0" promptText="Céllule" />
+            <ImageView fitWidth="40.0" layoutX="1045.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/metier.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="profession" labelFloat="true" layoutX="1091.0" layoutY="20.0" prefWidth="150.0" promptText="Profession" />
+            <ImageView fitWidth="40.0" layoutX="1246.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/artImport.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="statut" labelFloat="true" layoutX="1292.0" layoutY="20.0" prefWidth="150.0" promptText="Statut" />
+         </items>
+      </ToolBar>
+   </top>
+</BorderPane>

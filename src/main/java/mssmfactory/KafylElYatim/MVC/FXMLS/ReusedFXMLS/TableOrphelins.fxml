@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.ReusedControllers.TableOrphelinsController">
+   <center>
+      <TableView fx:id="resultTable" editable="true" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn fx:id="indexColumn" prefWidth="75.0" text="N°">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/numero.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="nomColumn" prefWidth="120.0" text="Nom">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/name.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="prenomColumn" prefWidth="120.0" text="Prenom">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/prenom.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="ddnColumn" prefWidth="150.0" text="Date de naissance">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/ddn.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="ageColumn" prefWidth="75.0" text="Age">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/age.jpg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="genreColumn" prefWidth="100.0" text="Genre">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/sexe.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="tuteurColumn" prefWidth="150.0" text="Tuteur">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/tuteurs.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="regionColumn" prefWidth="108.0" text="Region">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/region.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="relationTuteurColumn" prefWidth="212.0" text="Relation avec tuteur">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/relation.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </TableColumn>
+         </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem fx:id="authorizeMenuItem" mnemonicParsing="false" onAction="#authorizeOrphen" text="Autoriser l'orphelin" />
+                  <MenuItem fx:id="dismissMenuItem" mnemonicParsing="false" onAction="#dismissOrphen" text="Annuler l'autorisation de l'orphelin" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </center>
+</BorderPane>

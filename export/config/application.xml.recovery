@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><config>
+	<defaultUsername>admin</defaultUsername>
+	<defaultPassword>admin</defaultPassword>
+	<savePasswordBehavior>Y</savePasswordBehavior>
+	<scaleInterfaceConfiguration>
+		<scale>false</scale>
+		<xScale>1.0</xScale>
+		<yScale>1.0</yScale>
+	</scaleInterfaceConfiguration>
+	<poste>
+		<prefix>KAFYLELYATIM</prefix>
+		<suffix>1</suffix>
+	</poste>
+</config>

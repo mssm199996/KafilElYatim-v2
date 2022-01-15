@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import msjfxuicomponents.uicomponents.MSSearcheableCategorizerCrudListTitledPane?>
+<?import msjfxuicomponents.uicomponents.MSSimpleObservationTitledPane?>
+
+<BorderPane stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.Donation.DonationsPanelController">
+   <top>
+      <ToolBar cache="true" BorderPane.alignment="CENTER">
+         <items>
+            <JFXButton layoutX="10.0" layoutY="10.0" onAction="#addEntity" prefHeight="50.0" styleClass="lightGreenButton" text="Nouvelle donation">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/bigPlus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#deleteEntity" prefHeight="50.0" styleClass="lightRedButton" text="Supprimer une donation">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#printResult" prefHeight="50.0" styleClass="lightBrownButton" text="Imprimer le resultat">
+               <graphic>
+                  <ImageView fitHeight="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/print.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#refresh" prefHeight="50.0" styleClass="lightBlueButton" text="Rafraichir">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/reset.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <Separator orientation="VERTICAL" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/numero.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="idDonation" labelFloat="true" onKeyReleased="#search" prefWidth="100.0" promptText="Id de la donation" />
+            <Separator orientation="VERTICAL" />
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/type.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="type" labelFloat="true" prefWidth="120.0" promptText="Type de donation" />
+            <Separator orientation="VERTICAL" />
+            <JFXDatePicker fx:id="dateDebut" defaultColor="RED" prefWidth="150.0" promptText="Date de début" />
+            <JFXDatePicker fx:id="dateFin" defaultColor="#4000ff" prefWidth="150.0" promptText="Date de fin" />
+         </items>
+      </ToolBar>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.7" BorderPane.alignment="CENTER">
+         <items>
+            <BorderPane minWidth="0.0" SplitPane.resizableWithParent="false">
+               <center>
+                  <fx:include fx:id="tableDonations" source="../ReusedFXMLS/TableDonations.fxml" />
+               </center>
+            </BorderPane>
+            <SplitPane dividerPositions="0.5" maxWidth="1.7976931348623157E308" orientation="VERTICAL" SplitPane.resizableWithParent="false">
+               <items>
+                  <MSSearcheableCategorizerCrudListTitledPane fx:id="donateursTitledPane" addButtonCaption="Ajouter un donateur" deleteButtonCaption="Supprimer un donateur" maxHeight="1.7976931348623157E308" text="Liste des donateurs">
+                     <leftSideImage>
+                        <Image url="@../../Icons/person.png" />
+                     </leftSideImage>
+                  </MSSearcheableCategorizerCrudListTitledPane>
+                  <MSSimpleObservationTitledPane fx:id="observationTitledPane" maxHeight="1.7976931348623157E308" text="Observations" updateButtonLabel="Mettre à jour">
+                     <titledPaneImage>
+                        <Image url="@../../Icons/observation.jpg.png" />
+                     </titledPaneImage>
+                     <updateButtonImage>
+                        <Image url="@../../Icons/update.png" />
+                     </updateButtonImage>
+                  </MSSimpleObservationTitledPane>
+               </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+   </center>
+</BorderPane>

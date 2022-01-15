@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import msjfxuicomponents.uicomponents.MSCategorizerCrudListTitledPane?>
+<?import msjfxuicomponents.uicomponents.MSDirectoryChooser?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.Configuration.ConfigurationController">
+   <center>
+      <JFXTabPane BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="Configuration des données">
+               <content>
+                  <BorderPane>
+                     <center>
+                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" BorderPane.alignment="CENTER">
+                           <items>
+                              <SplitPane dividerPositions="0.3, 0.7">
+                                 <items>
+                                    <MSCategorizerCrudListTitledPane fx:id="vehiculesCrudList" addButtonCaption="Ajouter un vehicule" collapsible="false" deleteButtonCaption="Supprimer un vehicule" maxHeight="1.7976931348623157E308" text="Liste des vehicules">
+                                       <leftSideImage>
+                                          <Image url="@../../Icons/vehicules.png" />
+                                       </leftSideImage>
+                                    </MSCategorizerCrudListTitledPane>
+                                    <TitledPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Liste des régions">
+                                       <graphic>
+                                          <ImageView fitHeight="150.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Icons/region.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <content>
+                                          <BorderPane>
+                                             <center>
+                                                <fx:include fx:id="tableRegions" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" source="../ReusedFXMLS/TableRegions.fxml" />
+                                             </center>
+                                             <top>
+                                                <HBox spacing="5.0" BorderPane.alignment="CENTER">
+                                                   <BorderPane.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </BorderPane.margin>
+                                                   <children>
+                                                      <JFXButton onAction="#addRegion" styleClass="lightGreenButton" text="Ajouter une région" />
+                                                      <JFXButton layoutX="10.0" layoutY="10.0" onAction="#deleteRegion" styleClass="lightRedButton" text="Supprimer une région" />
+                                                   </children>
+                                                </HBox>
+                                             </top>
+                                          </BorderPane>
+                                       </content>
+                                    </TitledPane>
+                                    <MSCategorizerCrudListTitledPane fx:id="appareillageCrudList" addButtonCaption="Ajouter un appareillage" collapsible="false" deleteButtonCaption="Supprimer un appareillage" maxHeight="1.7976931348623157E308" text="Liste des appareillages">
+                                       <leftSideImage>
+                                          <Image url="@../../Icons/appareillage.png" />
+                                       </leftSideImage>
+                                    </MSCategorizerCrudListTitledPane>
+                                 </items>
+                              </SplitPane>
+                              <SplitPane dividerPositions="0.3, 0.7">
+                                 <items>
+                                    <MSCategorizerCrudListTitledPane fx:id="professionsCrudList" addButtonCaption="Ajouter une profession" collapsible="false" deleteButtonCaption="Supprimer une profession" maxHeight="1.7976931348623157E308" text="Liste des professions">
+                                       <leftSideImage>
+                                          <Image url="@../../Icons/metier.png" />
+                                       </leftSideImage>
+                                    </MSCategorizerCrudListTitledPane>
+                                    <MSCategorizerCrudListTitledPane fx:id="statutsCrudList" addButtonCaption="Ajouter un statut" collapsible="false" deleteButtonCaption="Supprimer un statut" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" text="Liste des statuts">
+                                       <leftSideImage>
+                                          <Image url="@../../Icons/artImport.png" />
+                                       </leftSideImage>
+                                    </MSCategorizerCrudListTitledPane>
+                                    <MSCategorizerCrudListTitledPane fx:id="cellulesCrudList" addButtonCaption="Ajouter une céllule" collapsible="false" deleteButtonCaption="Supprimer une céllule" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" text="Liste des céllules">
+                                       <leftSideImage>
+                                          <Image url="@../../Icons/type.png" />
+                                       </leftSideImage>
+                                    </MSCategorizerCrudListTitledPane>
+                                 </items>
+                              </SplitPane>
+                           </items>
+                        </SplitPane>
+                     </center></BorderPane>
+               </content>
+            </Tab>
+            <Tab text="Configuration du système">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" BorderPane.alignment="CENTER">
+                           <BorderPane.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </BorderPane.margin>
+                           <children>
+                              <HBox alignment="BOTTOM_LEFT" spacing="5.0">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" text="Chemin du dossier de sauvegarde: ">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <MSDirectoryChooser fx:id="cheminSauvegarde" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="10.0" spacing="18.0">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" text="Dossier d'installation de MySQL:">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Label>
+                                    <MSDirectoryChooser fx:id="cheminMysql" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="56.0" spacing="18.0">
+                                 <children>
+                                    <JFXCheckBox fx:id="advancedPrinting" selected="true" styleClass="bigCheckBox" text="Activer l'utilitaire d'impression avancée" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </center></BorderPane>
+               </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </center>
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <JFXCheckBox fx:id="activateCamera" maxHeight="0.0" maxWidth="0.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0" visible="false" />
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton maxWidth="1.7976931348623157E308" onAction="#confirm" prefHeight="50.0" styleClass="lightGreenButton" text="Confirmer" HBox.hgrow="ALWAYS" />
+            <JFXButton maxWidth="1.7976931348623157E308" onAction="#cancel" prefHeight="50.0" styleClass="lightRedButton" text="Annuler" HBox.hgrow="ALWAYS" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </BorderPane.margin>
+      </HBox>
+   </bottom>
+</BorderPane>

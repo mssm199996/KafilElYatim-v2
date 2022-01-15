@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane minHeight="0.0" minWidth="0.0" stylesheets="@../../CSS/GeneralPurposes.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mssmfactory.KafylElYatim.MVC.Controllers.History.ActionsPanelController">
+   <left>
+      <BorderPane minWidth="0.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <center>
+            <fx:include fx:id="tableTuteurs" minWidth="0.0" source="../ReusedFXMLS/TableTuteurs.fxml" />
+         </center>
+      </BorderPane>
+   </left>
+   <top>
+      <ToolBar BorderPane.alignment="CENTER">
+        <items>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/eventdecharge.png" />
+               </image>
+            </ImageView>
+            <JFXComboBox fx:id="evenementFilter" labelFloat="true" prefWidth="250.0" promptText="Evenement" />
+            <JFXButton onAction="#refresh" prefHeight="50.0" styleClass="lightBlueButton" text="Rafraichir">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/reset.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <SplitMenuButton mnemonicParsing="false" text="Imprimer">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#printTutors" text="Imprimer avec le nombre d'orphelins total" />
+                  <MenuItem mnemonicParsing="false" onAction="#printTutorsListWithRealOrphelinsNumber" text="Imprimer avec le nombre d'orphelins réel" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Icons/print.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </SplitMenuButton>
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>
